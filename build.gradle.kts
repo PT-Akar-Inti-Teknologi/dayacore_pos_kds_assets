@@ -1,5 +1,3 @@
-import org.jetbrains.compose.ExperimentalComposeLibrary
-
 plugins {
     alias(libs.plugins.multiplatform)
     alias(libs.plugins.compose)
@@ -31,14 +29,6 @@ kotlin {
             implementation(libs.kotlinx.datetime)
             implementation(libs.koin.core)
         }
-
-        commonTest.dependencies {
-            implementation(kotlin("test"))
-            @OptIn(ExperimentalComposeLibrary::class)
-            implementation(compose.uiTest)
-            implementation(libs.kotlinx.coroutines.test)
-        }
-
     }
 }
 
