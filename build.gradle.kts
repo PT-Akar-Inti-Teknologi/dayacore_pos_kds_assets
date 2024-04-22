@@ -1,14 +1,31 @@
+import org.jetbrains.compose.ExperimentalComposeLibrary
+
 plugins {
     alias(libs.plugins.multiplatform)
     alias(libs.plugins.compose)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.buildConfig)
     alias(libs.plugins.kotlinx.serialization)
 }
 
-val packageName = "app.dayacore"
-
 kotlin {
-    jvm()
+    androidTarget {
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = "17"
+            }
+        }
+    }
+
+    jvm {
+        jvm {
+            compilations.all {
+                kotlinOptions {
+                    jvmTarget = "17"
+                }
+            }
+        }
+    }
 
     sourceSets {
         all {
@@ -16,6 +33,7 @@ kotlin {
                 optIn("org.jetbrains.compose.resources.ExperimentalResourceApi")
             }
         }
+
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -29,6 +47,17 @@ kotlin {
             implementation(libs.kotlinx.datetime)
             implementation(libs.koin.core)
         }
+
+        commonTest.dependencies {
+            implementation(kotlin("test"))
+            @OptIn(ExperimentalComposeLibrary::class)
+            implementation(compose.uiTest)
+            implementation(libs.kotlinx.coroutines.test)
+        }
+
+        androidMain.dependencies {
+            implementation(libs.androidx.activityCompose)
+        }
     }
 }
 
@@ -36,9 +65,23 @@ buildConfig {
     // BuildConfig configuration here.
     // https://github.com/gmazzo/gradle-buildconfig-plugin#usage-in-kts
     forClass("SyncType") {
-        packageName("$packageName")
+        packageName("app.dayacore")
 
         buildConfigField("String", "SYNC_PRODUCT", "\"sync_product\"")
         buildConfigField("String", "SYNC_ORDER", "\"sync_order\"")
+    }
+}
+
+android {
+    namespace = "app.dayacore"
+    compileSdk = 34
+
+    defaultConfig {
+        minSdk = 24
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
