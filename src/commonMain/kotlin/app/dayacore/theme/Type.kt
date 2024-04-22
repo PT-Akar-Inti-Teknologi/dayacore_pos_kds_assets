@@ -8,25 +8,25 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.Font
-import pos_dayacore.core_daya.generated.resources.Poppins_Black
-import pos_dayacore.core_daya.generated.resources.Poppins_BlackItalic
-import pos_dayacore.core_daya.generated.resources.Poppins_Bold
-import pos_dayacore.core_daya.generated.resources.Poppins_BoldItalic
-import pos_dayacore.core_daya.generated.resources.Poppins_ExtraBold
-import pos_dayacore.core_daya.generated.resources.Poppins_ExtraBoldItalic
-import pos_dayacore.core_daya.generated.resources.Poppins_ExtraLight
-import pos_dayacore.core_daya.generated.resources.Poppins_ExtraLightItalic
-import pos_dayacore.core_daya.generated.resources.Poppins_Italic
-import pos_dayacore.core_daya.generated.resources.Poppins_Light
-import pos_dayacore.core_daya.generated.resources.Poppins_LightItalic
-import pos_dayacore.core_daya.generated.resources.Poppins_Medium
-import pos_dayacore.core_daya.generated.resources.Poppins_MediumItalic
-import pos_dayacore.core_daya.generated.resources.Poppins_Regular
-import pos_dayacore.core_daya.generated.resources.Poppins_SemiBold
-import pos_dayacore.core_daya.generated.resources.Poppins_SemiBoldItalic
-import pos_dayacore.core_daya.generated.resources.Poppins_Thin
-import pos_dayacore.core_daya.generated.resources.Poppins_ThinItalic
-import pos_dayacore.core_daya.generated.resources.Res
+import pos_dayacore.core.generated.resources.Poppins_Black
+import pos_dayacore.core.generated.resources.Poppins_BlackItalic
+import pos_dayacore.core.generated.resources.Poppins_Bold
+import pos_dayacore.core.generated.resources.Poppins_BoldItalic
+import pos_dayacore.core.generated.resources.Poppins_ExtraBold
+import pos_dayacore.core.generated.resources.Poppins_ExtraBoldItalic
+import pos_dayacore.core.generated.resources.Poppins_ExtraLight
+import pos_dayacore.core.generated.resources.Poppins_ExtraLightItalic
+import pos_dayacore.core.generated.resources.Poppins_Italic
+import pos_dayacore.core.generated.resources.Poppins_Light
+import pos_dayacore.core.generated.resources.Poppins_LightItalic
+import pos_dayacore.core.generated.resources.Poppins_Medium
+import pos_dayacore.core.generated.resources.Poppins_MediumItalic
+import pos_dayacore.core.generated.resources.Poppins_Regular
+import pos_dayacore.core.generated.resources.Poppins_SemiBold
+import pos_dayacore.core.generated.resources.Poppins_SemiBoldItalic
+import pos_dayacore.core.generated.resources.Poppins_Thin
+import pos_dayacore.core.generated.resources.Poppins_ThinItalic
+import pos_dayacore.core.generated.resources.Res
 
 // Set of Material typography styles to start with
 @Composable

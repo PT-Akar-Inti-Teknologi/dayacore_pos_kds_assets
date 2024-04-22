@@ -7,7 +7,7 @@ plugins {
     alias(libs.plugins.kotlinx.serialization)
 }
 
-val packageName = "app.dayacore.pos"
+val packageName = "app.dayacore"
 
 kotlin {
     jvm()
