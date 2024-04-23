@@ -1,9 +1,9 @@
 package com.ait.customkeyboard.model
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.KeyboardBackspace
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.Done
-import androidx.compose.material.icons.outlined.KeyboardBackspace
 import androidx.compose.material.icons.outlined.KeyboardCapslock
 import androidx.compose.material.icons.outlined.SpaceBar
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -20,7 +20,7 @@ sealed class UtilityKey(
     )
 
     data object Backspace : UtilityKey(
-        Icons.Outlined.KeyboardBackspace,
+        Icons.AutoMirrored.Outlined.KeyboardBackspace,
         KeysConstants.BACK_SPACE_KEY
     )
 

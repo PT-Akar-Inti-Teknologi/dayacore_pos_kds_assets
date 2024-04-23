@@ -3,8 +3,6 @@ package com.ait.customkeyboard.model
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.ArrowBack
 import androidx.compose.material.icons.automirrored.outlined.ArrowForward
-import androidx.compose.material.icons.outlined.ArrowBack
-import androidx.compose.material.icons.outlined.ArrowForward
 import androidx.compose.material.icons.outlined.SpaceBar
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.ait.customkeyboard.data.KeysConstants
