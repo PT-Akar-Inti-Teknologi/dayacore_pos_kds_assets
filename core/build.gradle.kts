@@ -41,11 +41,17 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
             implementation(libs.voyager.navigator)
+            implementation(libs.voyager.screenmodel)
             implementation(libs.composeImageLoader)
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.kotlinx.datetime)
             implementation(libs.koin.core)
+            implementation(libs.ktor.network)
+            // https://mvnrepository.com/artifact/com.rabbitmq/amqp-client
+            implementation(libs.amqp.client)
+            implementation(libs.slf4j.simple)
+            implementation(libs.slf4j.api)
         }
 
         commonTest.dependencies {
@@ -64,6 +70,13 @@ kotlin {
 buildConfig {
     // BuildConfig configuration here.
     // https://github.com/gmazzo/gradle-buildconfig-plugin#usage-in-kts
+    forClass("PreferenceName") {
+        packageName("app.dayacore")
+
+        buildConfigField("String", "CONFIG", "\"app-config\"")
+        buildConfigField("String", "USER", "\"app-user\"")
+        buildConfigField("String", "TEMPORARY", "\"app-temporary\"")
+    }
     forClass("SyncType") {
         packageName("app.dayacore")
 
