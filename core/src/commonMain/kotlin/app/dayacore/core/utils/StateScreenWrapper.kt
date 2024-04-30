@@ -19,7 +19,10 @@ inline fun <reified ViewModel : BaseViewModel<State, Event>, State, Event> State
     viewModel: ViewModel,
     navigator: Navigator,
     exceptionDialog: List<Int> = listOf(),
-    properties: StateScreenProperties,
+    properties: StateScreenProperties = StateScreenProperties(
+        alertTitle = String.Empty,
+        alertDismissTitle = String.Empty
+    ),
     crossinline events: (Flow<Event>, CoroutineScope, Navigator) -> Unit,
     crossinline content: @Composable (viewModel: ViewModel, state: State) -> Unit,
     crossinline actionSimpleDialog: (viewModel: ViewModel, responseCode: Int) -> Unit = { _, _ -> }

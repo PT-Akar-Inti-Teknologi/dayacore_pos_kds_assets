@@ -79,10 +79,9 @@ fun CustomButton(
             Text(
                 text = customButtonParams.text,
                 style = TextStyle(
-//                    fontFamily = fontFamilyResource(sharedFont.bld),
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 16.sp,
-                    letterSpacing = 0.15.sp,
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 14.sp,
+                    lineHeight = 20.sp,
                     fontFeatureSettings = "lnum",
                 ),
                 color = if (customButtonParams.enabled) {

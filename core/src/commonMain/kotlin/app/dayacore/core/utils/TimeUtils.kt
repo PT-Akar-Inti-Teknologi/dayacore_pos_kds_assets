@@ -5,6 +5,19 @@ import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 
+fun dateNowToDDMMYYYY(separator: String = "/", defaultValue: String = "-"): String {
+    return try {
+        val localDateTime = Clock.System.now()
+            .toLocalDateTime(TimeZone.currentSystemDefault())
+
+        val month = localDateTime.monthNumber.takeIf { it > 9 } ?: "0${localDateTime.monthNumber}"
+
+        "${localDateTime.dayOfMonth}$separator$month$separator${localDateTime.year}"
+    } catch (e: Exception) {
+        defaultValue
+    }
+}
+
 fun String.dateToDDMMMYYYY(separator: String = "/", defaultValue: String = "-"): String {
     if (this.isEmpty())
         return defaultValue
