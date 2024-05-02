@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.buildConfig)
     alias(libs.plugins.kotlinx.serialization)
+    alias(libs.plugins.sqlDelight)
 }
 
 kotlin {
@@ -49,6 +50,7 @@ kotlin {
             implementation(libs.koin.core)
             implementation(libs.ktor.network)
             implementation(libs.kermit)
+            implementation(libs.multiplatformSettings)
             // https://mvnrepository.com/artifact/com.rabbitmq/amqp-client
             implementation(libs.amqp.client)
             implementation(libs.slf4j.simple)
@@ -64,6 +66,7 @@ kotlin {
 
         androidMain.dependencies {
             implementation(libs.androidx.activityCompose)
+            implementation(libs.androidx.security.crypto)
         }
     }
 }
@@ -75,8 +78,6 @@ buildConfig {
         packageName("app.dayacore")
 
         buildConfigField("String", "CONFIG", "\"app-config\"")
-        buildConfigField("String", "USER", "\"app-user\"")
-        buildConfigField("String", "TEMPORARY", "\"app-temporary\"")
     }
     forClass("SyncType") {
         packageName("app.dayacore")

@@ -1,5 +1,7 @@
 package app.dayacore.di
 
+import app.dayacore.di.db.DBDataSource
+import app.dayacore.di.db.usecase.DBConfigUseCaseModule
 import org.koin.core.context.startKoin
 import org.koin.core.module.Module
 import org.koin.dsl.KoinAppDeclaration
@@ -18,4 +20,8 @@ fun startKoinWithShared(moduleList: List<Module>) = startKoin {
 
 fun getCoreModules() = listOf(
     preferenceModule,
+    // data source
+    DBDataSource,
+    // use case
+    DBConfigUseCaseModule
 )
