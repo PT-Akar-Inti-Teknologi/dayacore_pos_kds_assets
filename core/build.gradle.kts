@@ -48,6 +48,7 @@ kotlin {
             implementation(libs.kotlinx.datetime)
             implementation(libs.koin.core)
             implementation(libs.ktor.network)
+            implementation(libs.kermit)
             // https://mvnrepository.com/artifact/com.rabbitmq/amqp-client
             implementation(libs.amqp.client)
             implementation(libs.slf4j.simple)

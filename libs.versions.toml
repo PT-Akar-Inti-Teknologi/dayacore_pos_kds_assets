@@ -9,6 +9,7 @@ androidx-uiTest = "1.6.6"
 voyager = "1.0.0"
 composeImageLoader = "1.7.8"
 buildConfig = "4.1.1"
+kermit = "2.0.3"
 kotlinx-coroutines = "1.8.0"
 kotlinx-serialization = "1.6.3"
 kotlinx-datetime = "0.5.0"
@@ -26,6 +27,7 @@ androidx-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref =
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
 voyager-screenmodel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "voyager" }
 composeImageLoader = { module = "io.github.qdsfdhvh:image-loader", version.ref = "composeImageLoader" }
+kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
@@ -36,6 +38,9 @@ koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 ktor-network = { module = "io.ktor:ktor-network", version.ref = "ktor" }
 slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
 slf4j-simple = { module = "org.slf4j:slf4j-simple", version.ref = "slf4j" }
+sqlDelight-gradle = { module = "app.cash.sqldelight:gradle-plugin", version.ref = "sqlDelight" }
+sqlDelight-runtime = { module = "app.cash.sqldelight:runtime", version.ref = "sqlDelight" }
+sqlDelight-coroutines-extensions = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqlDelight" }
 sqlDelight-driver-sqlite = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqlDelight" }
 
 [plugins]

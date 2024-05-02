@@ -1,5 +1,6 @@
 package app.dayacore.core.rabbitmq
 
+import co.touchlab.kermit.Logger
 import com.rabbitmq.client.AMQP
 import com.rabbitmq.client.Channel
 import com.rabbitmq.client.Connection
@@ -47,19 +48,19 @@ object AppRabbitMQ {
 
         channel.basicConsume(queueValue, true, object : Consumer {
             override fun handleConsumeOk(consumerTag: String?) {
-                println("$consumerTag has been registered as a callback")
+                Logger.i { "$consumerTag has been registered as a callback" }
                 if (consumerTag != null)
                     callback.onConnected.invoke(consumerTag)
             }
 
             override fun handleCancelOk(consumerTag: String?) {
                 // Perform cancellation tasks such as closing resources here
-                println("AppRabbitMQConsumer-handleCancelOk : $consumerTag")
+                Logger.i { "AppRabbitMQConsumer-handleCancelOk : $consumerTag" }
             }
 
             override fun handleCancel(consumerTag: String?) {
                 // Perform cancellation tasks such as closing resources here
-                println("AppRabbitMQConsumer-handleCancel : $consumerTag")
+                Logger.i { "AppRabbitMQConsumer-handleCancel : $consumerTag" }
             }
 
             override fun handleShutdownSignal(consumerTag: String?, sig: ShutdownSignalException?) {
@@ -69,7 +70,7 @@ object AppRabbitMQ {
 
             override fun handleRecoverOk(consumerTag: String?) {
                 // If connection issues, try to receive messages again
-                println("AppRabbitMQConsumer-handleRecoverOk : $consumerTag")
+                Logger.i { "AppRabbitMQConsumer-handleRecoverOk : $consumerTag" }
                 if (consumerTag != null)
                     callback.onSuccessRecover.invoke(consumerTag)
             }

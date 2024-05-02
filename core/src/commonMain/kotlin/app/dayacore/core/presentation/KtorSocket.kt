@@ -3,6 +3,7 @@ package app.dayacore.core.presentation
 import app.dayacore.core.utils.fromJson
 import app.dayacore.core.utils.isValidIPv4
 import app.dayacore.core.utils.toJson
+import co.touchlab.kermit.Logger
 import io.ktor.network.selector.SelectorManager
 import io.ktor.network.sockets.ServerSocket
 import io.ktor.network.sockets.Socket
@@ -50,8 +51,8 @@ object KtorSocket {
         val socketTcp = aSocket(selectorManager).tcp()
         serverSocket = socketTcp.bind(hostName, port)
 
-        println("Server is listening at ${serverSocket.localAddress}")
-        println("Server is listening at - java address ${serverSocket.localAddress.toJavaAddress().address}")
+        Logger.i { "Server is listening at ${serverSocket.localAddress}" }
+        Logger.i { "Server is listening at - java address ${serverSocket.localAddress.toJavaAddress().address}" }
         // callback connection status
         connectionStatusCallback.invoke(serverSocket.localAddress.toJavaAddress().address.isValidIPv4())
 
@@ -62,11 +63,11 @@ object KtorSocket {
                     val receiveChannel: ByteReadChannel = socket.openReadChannel()
                     val writeChannel: ByteWriteChannel = socket.openWriteChannel(autoFlush = true)
                     if (socket.isActive)
-                        println("Accepted Client from ${socket.remoteAddress}")
+                        Logger.i { "Accepted Client from ${socket.remoteAddress}" }
 
                     while (socket.isActive) {
                         val dataString = receiveChannel.readUTF8Line()
-                        println("initServer-dataString : $dataString")
+                        Logger.i { "initServer-dataString : $dataString" }
                         if (!dataString.isNullOrBlank()) {
                             val data = dataString.fromJson(deserializer = Data.serializer())
                             receivedCallback.invoke(data, writeChannel)
@@ -103,7 +104,7 @@ object KtorSocket {
                         val data = dataString.fromJson(deserializer = Data.serializer())
                         callback(data)
                     } else {
-                        println("Server closed a connection")
+                        Logger.i { "Server closed a connection" }
                         clientSocket.close()
                         selectorManager.close()
                         clientWriteChannel.close()
@@ -122,10 +123,10 @@ object KtorSocket {
             try {
                 val dataToSend = Data(command = command, data = "")
                 val dataJson = dataToSend.toJson(serializer = Data.serializer())
-                println("clientSendCommand: $dataJson")
+                Logger.i { "clientSendCommand: $dataJson" }
                 clientWriteChannel.writeStringUtf8(s = "$dataJson\n")
             } catch (e: Exception) {
-                println("clientSendCommand-Exception : $e")
+                Logger.e { "clientSendCommand-Exception : $e" }
             }
         }
     }
@@ -135,10 +136,10 @@ object KtorSocket {
         if (KtorSocket::clientWriteChannel.isInitialized) {
             try {
                 val dataJson = data.toJson(serializer = Data.serializer())
-                println("clientSendData: $dataJson")
+                Logger.i { "clientSendData: $dataJson" }
                 clientWriteChannel.writeStringUtf8(s = "$dataJson\n")
             } catch (e: Exception) {
-                println("clientSendData-Exception : $e")
+                Logger.i { "clientSendData-Exception : $e" }
             }
         }
     }
@@ -146,10 +147,10 @@ object KtorSocket {
     suspend fun clientSendString(jsonString: String) {
         if (KtorSocket::clientWriteChannel.isInitialized) {
             try {
-                println("clientSendString: $jsonString")
+                Logger.i { "clientSendString: $jsonString" }
                 clientWriteChannel.writeStringUtf8(s = "$jsonString\n")
             } catch (e: Exception) {
-                println("clientSendString-Exception : $e")
+                Logger.i { "clientSendString-Exception : $e" }
             }
         }
     }
