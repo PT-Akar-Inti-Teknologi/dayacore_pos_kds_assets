@@ -8,7 +8,7 @@ import java.util.prefs.Preferences
 class JvmPlatform : Platform, KoinComponent {
 
     override fun getEncryptedPreference(preferenceName: String): Settings {
-        val delegate = Preferences.systemRoot()
+        val delegate = Preferences.userRoot()
         return PreferencesSettings(delegate = delegate)
     }
 
