@@ -27,7 +27,6 @@ import kotlinx.serialization.Serializable
 object KtorSocket {
 
     // get from terminal execute: "ifconfig" -> IP: en0
-    private const val port = 9002
 
     private lateinit var serverSocket: ServerSocket
     private lateinit var clientSocket: Socket
@@ -43,6 +42,7 @@ object KtorSocket {
 
     suspend fun initServer(
         hostName: String,
+        port: Int,
         dispatcher: CoroutineDispatcher = Dispatchers.IO,
         connectionStatusCallback: (Boolean) -> Unit,
         receivedCallback: (Data, ByteWriteChannel) -> Unit
@@ -82,6 +82,7 @@ object KtorSocket {
 
     suspend fun initClient(
         hostName: String,
+        port: Int,
         dispatcher: CoroutineDispatcher = Dispatchers.IO,
         connectionStatusCallback: (Boolean) -> Unit,
         callback: (Data) -> Unit

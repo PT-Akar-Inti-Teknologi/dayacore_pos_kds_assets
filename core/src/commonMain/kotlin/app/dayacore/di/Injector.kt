@@ -19,6 +19,9 @@ fun startKoinWithShared(moduleList: List<Module>) = startKoin {
 }
 
 fun getCoreModules() = listOf(
+    // utils
+    utilsModule,
+    // preference
     preferenceModule,
     // data source
     DBDataSource,

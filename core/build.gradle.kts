@@ -79,12 +79,6 @@ buildConfig {
 
         buildConfigField("String", "CONFIG", "\"app-config\"")
     }
-    forClass("SyncType") {
-        packageName("app.dayacore")
-
-        buildConfigField("String", "SYNC_PRODUCT", "\"sync_product\"")
-        buildConfigField("String", "SYNC_ORDER", "\"sync_order\"")
-    }
 }
 
 android {
