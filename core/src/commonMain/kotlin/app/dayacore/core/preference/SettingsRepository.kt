@@ -219,7 +219,11 @@ class NullableStringSettingConfig(settings: Settings, key: String) :
     override fun setStringValue(settings: Settings, key: String, value: String) =
         settings.putString(key, value)
 
-    override fun addListener(settings: ObservableSettings, key: String, callback: (String?) -> Unit): SettingsListener =
+    override fun addListener(
+        settings: ObservableSettings,
+        key: String,
+        callback: (String?) -> Unit
+    ): SettingsListener =
         settings.addStringOrNullListener(key, callback)
 }
 
@@ -232,7 +236,11 @@ class NullableIntSettingConfig(settings: Settings, key: String) :
     override fun setStringValue(settings: Settings, key: String, value: String) =
         settings.putInt(key, value.toInt())
 
-    override fun addListener(settings: ObservableSettings, key: String, callback: (Int?) -> Unit): SettingsListener =
+    override fun addListener(
+        settings: ObservableSettings,
+        key: String,
+        callback: (Int?) -> Unit
+    ): SettingsListener =
         settings.addIntOrNullListener(key, callback)
 }
 
@@ -245,7 +253,11 @@ class NullableLongSettingConfig(settings: Settings, key: String) :
     override fun setStringValue(settings: Settings, key: String, value: String) =
         settings.putLong(key, value.toLong())
 
-    override fun addListener(settings: ObservableSettings, key: String, callback: (Long?) -> Unit): SettingsListener =
+    override fun addListener(
+        settings: ObservableSettings,
+        key: String,
+        callback: (Long?) -> Unit
+    ): SettingsListener =
         settings.addLongOrNullListener(key, callback)
 }
 
@@ -258,7 +270,11 @@ class NullableFloatSettingConfig(settings: Settings, key: String) :
     override fun setStringValue(settings: Settings, key: String, value: String) =
         settings.putFloat(key, value.toFloat())
 
-    override fun addListener(settings: ObservableSettings, key: String, callback: (Float?) -> Unit): SettingsListener =
+    override fun addListener(
+        settings: ObservableSettings,
+        key: String,
+        callback: (Float?) -> Unit
+    ): SettingsListener =
         settings.addFloatOrNullListener(key, callback)
 }
 
@@ -271,7 +287,11 @@ class NullableDoubleSettingConfig(settings: Settings, key: String) :
     override fun setStringValue(settings: Settings, key: String, value: String) =
         settings.putDouble(key, value.toDouble())
 
-    override fun addListener(settings: ObservableSettings, key: String, callback: (Double?) -> Unit): SettingsListener =
+    override fun addListener(
+        settings: ObservableSettings,
+        key: String,
+        callback: (Double?) -> Unit
+    ): SettingsListener =
         settings.addDoubleOrNullListener(key, callback)
 }
 

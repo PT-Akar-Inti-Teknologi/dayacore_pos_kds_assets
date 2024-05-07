@@ -45,7 +45,8 @@ object KtorSocket {
         port: Int,
         dispatcher: CoroutineDispatcher = Dispatchers.IO,
         connectionStatusCallback: (Boolean) -> Unit,
-        receivedCallback: (Data, ByteWriteChannel) -> Unit
+        loggerCallback: (String) -> Unit,
+        receivedCallback: (Data, ByteWriteChannel) -> Unit,
     ) {
         val selectorManager = SelectorManager(dispatcher = dispatcher)
         val socketTcp = aSocket(selectorManager).tcp()
@@ -63,11 +64,11 @@ object KtorSocket {
                     val receiveChannel: ByteReadChannel = socket.openReadChannel()
                     val writeChannel: ByteWriteChannel = socket.openWriteChannel(autoFlush = true)
                     if (socket.isActive)
-                        Logger.i { "Accepted Client from ${socket.remoteAddress}" }
+                        loggerCallback.invoke("Accepted Client from : ${socket.remoteAddress}")
 
                     while (socket.isActive) {
                         val dataString = receiveChannel.readUTF8Line()
-                        Logger.i { "initServer-dataString : $dataString" }
+                        loggerCallback.invoke("Client : ${socket.remoteAddress}\nMessage : $dataString")
                         if (!dataString.isNullOrBlank()) {
                             val data = dataString.fromJson(deserializer = Data.serializer())
                             receivedCallback.invoke(data, writeChannel)
