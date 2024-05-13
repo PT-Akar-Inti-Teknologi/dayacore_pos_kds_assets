@@ -63,6 +63,7 @@ object KtorSocket {
                 launch {
                     val receiveChannel: ByteReadChannel = socket.openReadChannel()
                     val writeChannel: ByteWriteChannel = socket.openWriteChannel(autoFlush = true)
+
                     if (socket.isActive)
                         loggerCallback.invoke("Accepted Client from : ${socket.remoteAddress}")
 
