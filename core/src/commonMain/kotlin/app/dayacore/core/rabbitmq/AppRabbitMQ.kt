@@ -10,6 +10,7 @@ import com.rabbitmq.client.Envelope
 import com.rabbitmq.client.ShutdownSignalException
 import java.nio.charset.StandardCharsets
 
+
 object AppRabbitMQ {
 
     private lateinit var factory: ConnectionFactory
@@ -42,8 +43,13 @@ object AppRabbitMQ {
         factory.setSslContextFactory(null)
         connection = factory.newConnection()
 
+        /*val arguments: MutableMap<String, Any> = HashMap()
+        arguments["x-queue-type"] = "stream"
+        arguments["x-max-length-bytes"] = 20000000000 // maximum stream size: 20 GB
+        arguments["x-stream-max-segment-size-bytes"] = 100000000 // size of segment files: 100 MB*/
         channel = connection.createChannel().apply {
             queueDeclare(queueValue, false, false, false, null)
+            basicRecover()
         }
 
         channel.basicConsume(queueValue, true, object : Consumer {

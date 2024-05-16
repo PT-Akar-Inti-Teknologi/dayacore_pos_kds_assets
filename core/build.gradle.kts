@@ -48,7 +48,6 @@ kotlin {
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.kotlinx.datetime)
             implementation(libs.koin.core)
-            implementation(libs.ktor.network)
             implementation(libs.kermit)
             implementation(libs.multiplatformSettings)
             // https://mvnrepository.com/artifact/com.rabbitmq/amqp-client
