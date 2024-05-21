@@ -25,7 +25,8 @@ class ConfigDBDataSourceImpl(
             ),
             socketParam = SocketInitParam(
                 hostname = String.Empty,
-            )
+            ),
+            urlCustomerDisplayToLoad = String.Empty
         )
     }
 
@@ -72,5 +73,17 @@ class ConfigDBDataSourceImpl(
 
     override suspend fun getSocketParam(): SocketInitParam {
         return getConfigData().socketParam
+    }
+
+    override suspend fun saveConfigCustomerDisplay(urlToLoad: String): Boolean {
+        val configData = getConfigData()
+        // update data
+        configData.urlCustomerDisplayToLoad = urlToLoad
+        // update
+        return configData.update()
+    }
+
+    override suspend fun getUrlCustomerDisplay(): String {
+        return getConfigData().urlCustomerDisplayToLoad
     }
 }

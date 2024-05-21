@@ -8,5 +8,6 @@ import kotlinx.serialization.Serializable
 data class ConfigData(
     var urlToLoad: String,
     var rabbitMQParam: RabbitMQInitParam,
-    var socketParam: SocketInitParam
+    var socketParam: SocketInitParam,
+    var urlCustomerDisplayToLoad: String
 )

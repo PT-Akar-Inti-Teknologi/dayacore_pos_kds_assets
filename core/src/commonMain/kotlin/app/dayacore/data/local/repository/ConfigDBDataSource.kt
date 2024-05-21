@@ -13,4 +13,6 @@ interface ConfigDBDataSource {
     suspend fun getUrlToLoad(): String
     suspend fun getRabbitMQParam(): RabbitMQInitParam
     suspend fun getSocketParam(): SocketInitParam
+    suspend fun saveConfigCustomerDisplay(urlToLoad: String): Boolean
+    suspend fun getUrlCustomerDisplay(): String
 }

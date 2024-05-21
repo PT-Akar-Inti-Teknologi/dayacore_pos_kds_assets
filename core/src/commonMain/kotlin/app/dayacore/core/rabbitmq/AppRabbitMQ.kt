@@ -52,7 +52,7 @@ object AppRabbitMQ {
             basicRecover()
         }
 
-        channel.basicConsume(queueValue, true, object : Consumer {
+        channel.basicConsume(queueValue, false, object : Consumer {
             override fun handleConsumeOk(consumerTag: String?) {
                 Logger.i { "$consumerTag has been registered as a callback" }
                 if (consumerTag != null)
@@ -89,6 +89,8 @@ object AppRabbitMQ {
             ) {
                 if (consumerTag != null && body != null)
                     callback.onReceived.invoke(consumerTag, body.decodeToString())
+
+                envelope?.deliveryTag?.let { channel.basicAck(it, false) }
             }
         })
     }
