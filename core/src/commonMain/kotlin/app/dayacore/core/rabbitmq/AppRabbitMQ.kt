@@ -1,8 +1,8 @@
 package app.dayacore.core.rabbitmq
 
+import app.dayacore.core.utils.Empty
 import co.touchlab.kermit.Logger
 import com.rabbitmq.client.AMQP
-import com.rabbitmq.client.Channel
 import com.rabbitmq.client.Connection
 import com.rabbitmq.client.ConnectionFactory
 import com.rabbitmq.client.Consumer
@@ -10,12 +10,10 @@ import com.rabbitmq.client.Envelope
 import com.rabbitmq.client.ShutdownSignalException
 import java.nio.charset.StandardCharsets
 
-
 object AppRabbitMQ {
 
     private lateinit var factory: ConnectionFactory
     private lateinit var connection: Connection
-    private lateinit var channel: Channel
 
     data class ConnectionCallback(
         val onConnected: (String) -> Unit,
@@ -29,8 +27,6 @@ object AppRabbitMQ {
         passwordValue: String,
         hostnameValue: String,
         portValue: Int,
-        queueValue: String,
-        callback: ConnectionCallback
     ) {
         factory = ConnectionFactory()
             .apply {
@@ -42,14 +38,19 @@ object AppRabbitMQ {
             }
         factory.setSslContextFactory(null)
         connection = factory.newConnection()
+    }
 
-        /*val arguments: MutableMap<String, Any> = HashMap()
-        arguments["x-queue-type"] = "stream"
-        arguments["x-max-length-bytes"] = 20000000000 // maximum stream size: 20 GB
-        arguments["x-stream-max-segment-size-bytes"] = 100000000 // size of segment files: 100 MB*/
-        channel = connection.createChannel().apply {
+    fun consume(
+        queueValue: String,
+        exchange: String = "amq.fanout",
+        exchangeType: String = "fanout",
+        routingKey: String = String.Empty,
+        callback: ConnectionCallback
+    ) {
+        val channel = connection.createChannel().apply {
+            exchangeDeclare(exchange, exchangeType, true)
             queueDeclare(queueValue, false, false, false, null)
-            basicRecover()
+            queueBind(queueValue, exchange, routingKey)
         }
 
         channel.basicConsume(queueValue, false, object : Consumer {
@@ -95,21 +96,25 @@ object AppRabbitMQ {
         })
     }
 
-    fun publish(queue: String, message: String) {
-        if (::channel.isInitialized) {
-            channel.basicPublish(
-                "",
-                queue,
-                null,
-                message.toByteArray(StandardCharsets.UTF_8)
-            )
+    fun publish(
+        queue: String,
+        exchange: String = "amq.fanout",
+        exchangeType: String = "fanout",
+        message: String
+    ) {
+        val channel = connection.createChannel().apply {
+            exchangeDeclare(exchange, exchangeType, true)
         }
+
+        channel.basicPublish(
+            exchange,
+            queue,
+            null,
+            message.toByteArray(StandardCharsets.UTF_8)
+        )
     }
 
     fun close() {
-        if (::channel.isInitialized) {
-            connection.close()
-            channel.close()
-        }
+        connection.close()
     }
 }
