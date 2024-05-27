@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.multiplatform)
+    alias(libs.plugins.composeCompiler)
     alias(libs.plugins.compose)
     alias(libs.plugins.android.library)
 }

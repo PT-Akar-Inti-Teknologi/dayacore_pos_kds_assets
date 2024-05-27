@@ -2,6 +2,7 @@ import org.jetbrains.compose.ExperimentalComposeLibrary
 
 plugins {
     alias(libs.plugins.multiplatform)
+    alias(libs.plugins.composeCompiler)
     alias(libs.plugins.compose)
     alias(libs.plugins.android.library)
     alias(libs.plugins.buildConfig)
@@ -19,11 +20,9 @@ kotlin {
     }
 
     jvm {
-        jvm {
-            compilations.all {
-                kotlinOptions {
-                    jvmTarget = "17"
-                }
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = "17"
             }
         }
     }
