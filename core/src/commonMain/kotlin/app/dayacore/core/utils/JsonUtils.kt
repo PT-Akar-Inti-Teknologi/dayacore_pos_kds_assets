@@ -13,7 +13,7 @@ fun provideJson() = Json {
     ignoreUnknownKeys = true
 }
 
-private val json = Json { ignoreUnknownKeys = true }
+val json = Json { ignoreUnknownKeys = true }
 
 fun <T> T.toJson(serializer: SerializationStrategy<T>): String =
     json.encodeToString(serializer, this)
