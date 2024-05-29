@@ -2,6 +2,7 @@ package app.dayacore.core.utils
 
 import androidx.compose.runtime.*
 import app.dayacore.core.composables.dialog.LoaderDialog
+import app.dayacore.core.composables.dialog.ProgressDialog
 import app.dayacore.core.composables.dialog.SimpleDialog
 import app.dayacore.core.presentation.BaseViewModel
 import cafe.adriel.voyager.core.model.screenModelScope
@@ -30,6 +31,7 @@ inline fun <reified ViewModel : BaseViewModel<State, Event>, State, Event> State
     // init
     val state: State? by viewModel.state.collectAsState()
     val loadingState by viewModel.loadingState.collectAsState()
+    val progressState by viewModel.progressState.collectAsState()
     val responseState by viewModel.responseState.collectAsState()
 
     // event update
@@ -43,6 +45,10 @@ inline fun <reified ViewModel : BaseViewModel<State, Event>, State, Event> State
     // loading dialog
     if (loadingState) {
         LoaderDialog()
+    }
+    // progress dialog
+    if (progressState.first) {
+        ProgressDialog(progress = progressState.second)
     }
 
     // error dialog

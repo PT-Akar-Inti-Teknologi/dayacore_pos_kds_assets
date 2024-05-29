@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -45,6 +46,18 @@ fun LoaderDialog() {
                     .padding(all = 40.dp)
             )
         }
+    }
+}
+
+@Composable
+fun ProgressDialog(
+    progress: Float
+) {
+    BaseDialog {
+        LinearProgressIndicator(
+            progress = { progress },
+            modifier = Modifier.padding(all = 50.dp)
+        )
     }
 }
 

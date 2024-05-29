@@ -42,6 +42,14 @@ abstract class BaseViewModel<STATE : UiState, EVENT>(
         _loadingState.value = isLoading
     }
 
+    // progress state
+    private val _progressState = MutableStateFlow(Pair(first = false, second = 0f))
+    val progressState = _progressState.asStateFlow()
+
+    fun setProgress(isLoading: Boolean = true, progress: Float = 1f) {
+        _progressState.value = Pair(first = isLoading, second = progress)
+    }
+
     // error state
     private val _responseState = MutableStateFlow(StatusResponse())
     val responseState = _responseState.asStateFlow()
