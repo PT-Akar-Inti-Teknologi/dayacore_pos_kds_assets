@@ -7,6 +7,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ConfigData(
     var urlToLoad: String,
+    var branchId: String,
     var rabbitMQParam: RabbitMQInitParam,
     var socketParam: SocketInitParam,
     var urlCustomerDisplayToLoad: String

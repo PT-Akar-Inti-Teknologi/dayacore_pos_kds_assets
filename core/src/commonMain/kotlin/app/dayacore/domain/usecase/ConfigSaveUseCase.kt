@@ -9,10 +9,12 @@ class ConfigSaveUseCase(
 ) {
     suspend fun execute(
         urlToLoad: String,
+        branchId: String,
         rabbitMQParam: RabbitMQInitParam,
         socketParam: SocketInitParam
     ): Boolean = dataSource.saveConfig(
         urlToLoad = urlToLoad,
+        branchId = branchId,
         rabbitMQParam = rabbitMQParam,
         socketParam = socketParam
     )

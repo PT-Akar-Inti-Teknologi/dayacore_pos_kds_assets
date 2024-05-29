@@ -16,6 +16,7 @@ class ConfigDBDataSourceImpl(
     private fun getDefaultConfig(): ConfigData {
         return ConfigData(
             urlToLoad = String.Empty,
+            branchId = String.Empty,
             rabbitMQParam = RabbitMQInitParam(
                 username = String.Empty,
                 password = String.Empty,
@@ -51,12 +52,14 @@ class ConfigDBDataSourceImpl(
 
     override suspend fun saveConfig(
         urlToLoad: String,
+        branchId: String,
         rabbitMQParam: RabbitMQInitParam,
         socketParam: SocketInitParam
     ): Boolean {
         val configData = getConfigData()
         // update data
         configData.urlToLoad = urlToLoad
+        configData.branchId = branchId
         configData.rabbitMQParam = rabbitMQParam
         configData.socketParam = socketParam
         // update
@@ -65,6 +68,10 @@ class ConfigDBDataSourceImpl(
 
     override suspend fun getUrlToLoad(): String {
         return getConfigData().urlToLoad
+    }
+
+    override suspend fun getBranchId(): String {
+        return getConfigData().branchId
     }
 
     override suspend fun getRabbitMQParam(): RabbitMQInitParam {
