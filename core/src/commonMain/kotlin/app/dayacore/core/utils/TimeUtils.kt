@@ -2,6 +2,7 @@ package app.dayacore.core.utils
 
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
+import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 
@@ -83,4 +84,18 @@ fun isOnGoingDate(startDate: String, endDate: String): Boolean {
     val endInstantDate = Instant.parse(endDate).toLocalDateTime(TimeZone.currentSystemDefault())
 
     return startInstantDate <= currentLocalDate && currentLocalDate < endInstantDate
+}
+
+fun getPosDocumentNumber(prefix: String = "POS", separator: String = "/"): String {
+    val currentInstant: Instant = Clock.System.now()
+    val datetimeInUtc: LocalDateTime = currentInstant.toLocalDateTime(TimeZone.UTC)
+    val year = datetimeInUtc.year
+    val month = datetimeInUtc.monthNumber.takeIf { it > 9 } ?: "0${datetimeInUtc.monthNumber}"
+    val day = datetimeInUtc.dayOfMonth.takeIf { it > 9 } ?: "0${datetimeInUtc.dayOfMonth}"
+    val currentTimeInMillis = datetimeInUtc.time.toMillisecondOfDay().toString()
+    val transactionCode = currentTimeInMillis.subSequence(
+        startIndex = currentTimeInMillis.lastIndex.minus(other = 4),
+        endIndex = currentTimeInMillis.lastIndex
+    )
+    return "$prefix$separator$year$month$day$separator$transactionCode"
 }
