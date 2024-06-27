@@ -115,6 +115,7 @@ object AppRabbitMQ {
     }
 
     fun close() {
-        connection.close()
+        if (connection.isOpen)
+            connection.close()
     }
 }
