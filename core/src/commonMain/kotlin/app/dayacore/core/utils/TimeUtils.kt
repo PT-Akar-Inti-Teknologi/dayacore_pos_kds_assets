@@ -99,3 +99,16 @@ fun getPosDocumentNumber(prefix: String = "POS", separator: String = "/"): Strin
     )
     return "$prefix$separator$year$month$day$separator$transactionCode"
 }
+
+fun String.isSameDayWithToday(): Boolean {
+    // date time now
+    val currentMoment: Instant = Clock.System.now()
+    val dateTimeNow: LocalDateTime = currentMoment.toLocalDateTime(TimeZone.currentSystemDefault())
+    // date time check
+    val checkDateTime = Instant.parse(this)
+    val dateTimeCheck: LocalDateTime = checkDateTime.toLocalDateTime(TimeZone.currentSystemDefault())
+    // validate
+    return dateTimeNow.year == dateTimeCheck.year &&
+            dateTimeNow.month == dateTimeCheck.month &&
+            dateTimeNow.dayOfMonth == dateTimeCheck.dayOfMonth
+}
