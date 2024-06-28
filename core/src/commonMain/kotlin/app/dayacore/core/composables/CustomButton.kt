@@ -42,7 +42,7 @@ data class CustomButtonParams(
 fun CustomButton(
     customButtonParams: CustomButtonParams,
     modifier: Modifier = Modifier,
-    action: () -> Unit
+    action: () -> Unit,
 ) {
     Button(
         onClick = { action.invoke() },

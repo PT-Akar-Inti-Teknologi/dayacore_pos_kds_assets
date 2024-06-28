@@ -20,7 +20,7 @@ fun ScreenTransition(
     enterTransition: AnimatedContentTransitionScope<Screen>.() -> ContentTransform,
     exitTransition: AnimatedContentTransitionScope<Screen>.() -> ContentTransform,
     modifier: Modifier = Modifier,
-    content: ScreenTransitionContent = { it.Content() }
+    content: ScreenTransitionContent = { it.Content() },
 ) {
     ScreenTransition(
         navigator = navigator,
@@ -41,7 +41,7 @@ fun ScreenTransition(
     navigator: Navigator,
     transition: AnimatedContentTransitionScope<Screen>.() -> ContentTransform,
     modifier: Modifier = Modifier,
-    content: ScreenTransitionContent = { it.Content() }
+    content: ScreenTransitionContent = { it.Content() },
 ) {
     AnimatedContent(
         targetState = navigator.lastItem,

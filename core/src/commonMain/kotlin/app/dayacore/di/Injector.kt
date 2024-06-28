@@ -2,6 +2,7 @@ package app.dayacore.di
 
 import app.dayacore.di.db.DBDataSource
 import app.dayacore.di.db.usecase.DBConfigUseCaseModule
+import app.dayacore.di.db.usecase.DBKdsUseCaseModule
 import org.koin.core.context.startKoin
 import org.koin.core.module.Module
 import org.koin.dsl.KoinAppDeclaration
@@ -25,6 +26,8 @@ fun getCoreModules() = listOf(
     preferenceModule,
     // data source
     DBDataSource,
-    // use case
-    DBConfigUseCaseModule
+    // use case pos
+    DBConfigUseCaseModule,
+    // use case kds
+    DBKdsUseCaseModule
 )

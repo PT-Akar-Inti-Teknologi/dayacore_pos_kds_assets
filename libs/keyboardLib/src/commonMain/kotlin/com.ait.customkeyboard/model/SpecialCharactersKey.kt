@@ -2,7 +2,7 @@ package com.ait.customkeyboard.model
 
 sealed class SpecialCharactersKey(
     override val text: String,
-    override val span: Int = 1
+    override val span: Int = 1,
 ) : Key {
     data object Dot : SpecialCharactersKey(".")
     data object Underscore : SpecialCharactersKey("_")

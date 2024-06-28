@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 
 data class StateScreenProperties(
     val alertTitle: String,
-    val alertDismissTitle: String
+    val alertDismissTitle: String,
 )
 
 @Composable
@@ -26,7 +26,7 @@ inline fun <reified ViewModel : BaseViewModel<State, Event>, State, Event> State
     ),
     crossinline events: (Flow<Event>, CoroutineScope, Navigator) -> Unit,
     crossinline content: @Composable (viewModel: ViewModel, state: State) -> Unit,
-    crossinline actionSimpleDialog: (viewModel: ViewModel, responseCode: Int) -> Unit = { _, _ -> }
+    crossinline actionSimpleDialog: (viewModel: ViewModel, responseCode: Int) -> Unit = { _, _ -> },
 ) {
     // init
     val state: State? by viewModel.state.collectAsState()

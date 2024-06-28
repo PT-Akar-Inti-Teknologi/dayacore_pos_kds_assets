@@ -5,10 +5,10 @@ import app.dayacore.domain.model.response.StatusResponse
 sealed class ResultWrapper<out T : Any> {
 
     data class Success<T : Any>(
-        val data: T
+        val data: T,
     ) : ResultWrapper<T>()
 
     data class Error(
-        val statusResponse: StatusResponse? = null
+        val statusResponse: StatusResponse? = null,
     ) : ResultWrapper<Nothing>()
 }

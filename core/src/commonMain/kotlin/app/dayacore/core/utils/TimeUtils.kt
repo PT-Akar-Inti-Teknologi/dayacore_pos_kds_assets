@@ -105,7 +105,8 @@ fun String.isSameDayWithToday(): Boolean {
     try {
         // date time now
         val currentMoment: Instant = Clock.System.now()
-        val dateTimeNow: LocalDateTime = currentMoment.toLocalDateTime(TimeZone.currentSystemDefault())
+        val dateTimeNow: LocalDateTime =
+            currentMoment.toLocalDateTime(TimeZone.currentSystemDefault())
         // date time check
         val checkDateTime = Instant.parse(this)
         val dateTimeCheck: LocalDateTime =

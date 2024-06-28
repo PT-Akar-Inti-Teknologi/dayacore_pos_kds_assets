@@ -6,5 +6,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class MQBaseTypeDto(
     @SerialName("type")
-    val type: String? = null
+    val type: String? = null,
 )

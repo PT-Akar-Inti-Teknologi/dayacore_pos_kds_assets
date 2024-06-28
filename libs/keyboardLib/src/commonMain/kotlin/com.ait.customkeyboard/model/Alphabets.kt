@@ -2,7 +2,7 @@ package com.ait.customkeyboard.model
 
 sealed class Alphabets(
     override val text: String,
-    override val span: Int = 1
+    override val span: Int = 1,
 ) : Key, Cloneable {
     object A : Alphabets("a")
     object B : Alphabets("b")

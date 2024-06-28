@@ -6,5 +6,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ProductListDto(
     @SerialName("menu")
-    val menu: List<ProductItemDto>? = null
+    val menu: List<ProductItemDto>? = null,
 )

@@ -80,6 +80,7 @@ buildConfig {
         packageName("app.dayacore")
 
         buildConfigField("String", "CONFIG", "\"app-config\"")
+        buildConfigField("String", "KDS_SETTINGS", "\"kds-setting\"")
     }
 }
 

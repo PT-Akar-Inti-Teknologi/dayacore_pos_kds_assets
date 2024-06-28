@@ -12,7 +12,7 @@ import com.ait.customkeyboard.data.KeysConstants
 sealed class UtilityKey(
     open val icon: ImageVector,
     override val text: String,
-    override val span: Int = 1
+    override val span: Int = 1,
 ) : Key {
     data object Uppercase : UtilityKey(
         Icons.Outlined.KeyboardCapslock,

@@ -8,5 +8,5 @@ data class MQBaseTypeDataDto<DATA>(
     @SerialName("type")
     val type: String? = null,
     @SerialName("data")
-    val data: DATA? = null
+    val data: DATA? = null,
 )

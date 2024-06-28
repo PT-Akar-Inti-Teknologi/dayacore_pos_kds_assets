@@ -17,7 +17,7 @@ fun CustomAlertText(
     modifier: Modifier = Modifier,
     style: TextStyle = MaterialTheme.typography.labelSmall,
     textAlign: TextAlign? = null,
-    visible: Boolean
+    visible: Boolean,
 ) {
     AnimatedVisibility(
         visible = visible,

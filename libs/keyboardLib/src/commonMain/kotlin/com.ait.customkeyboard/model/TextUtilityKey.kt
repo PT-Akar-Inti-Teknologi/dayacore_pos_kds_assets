@@ -8,7 +8,7 @@ import com.ait.customkeyboard.data.KeysConstants
 sealed class TextUtilityKey(
     override val icon: ImageVector,
     override val text: String,
-    override val span: Int = 1
+    override val span: Int = 1,
 ) : UtilityKey(icon, text, span) {
 
     data object Numeric : TextUtilityKey(

@@ -16,7 +16,7 @@ import com.ait.customkeyboard.model.Key
 @Composable
 fun EmailSuggestionsRow(
     textFieldState: MutableState<TextFieldValue>?,
-    onKeyPress: (key: Key) -> Unit
+    onKeyPress: (key: Key) -> Unit,
 ) {
     LazyRow(
         modifier = Modifier.wrapContentSize(),

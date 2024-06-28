@@ -5,5 +5,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class SocketInitParam(
     val hostname: String,
-    val port: Int = 9002
+    val port: Int = 9002,
 )

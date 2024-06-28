@@ -25,7 +25,7 @@ fun CustomKeyboardContent(
     isVisible: Boolean,
     onAction: (Key) -> Unit = {},
     onKeyPress: (Key) -> Unit = {},
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     BoxWithConstraints(
         modifier = modifier

@@ -19,7 +19,7 @@ fun CustomText(
     color: Color = MaterialTheme.colorScheme.onBackground,
     textAlign: TextAlign? = null,
     textDecoration: TextDecoration? = null,
-    maxLines: Int = Int.MAX_VALUE
+    maxLines: Int = Int.MAX_VALUE,
 ) {
     Text(
         text = text,
@@ -40,7 +40,7 @@ fun CustomText(
     color: Color = MaterialTheme.colorScheme.onBackground,
     textAlign: TextAlign? = null,
     textDecoration: TextDecoration? = null,
-    maxLines: Int = Int.MAX_VALUE
+    maxLines: Int = Int.MAX_VALUE,
 ) {
     Text(
         text = text,

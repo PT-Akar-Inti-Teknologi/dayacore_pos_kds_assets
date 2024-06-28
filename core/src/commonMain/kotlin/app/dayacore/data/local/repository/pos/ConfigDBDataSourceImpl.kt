@@ -1,8 +1,8 @@
-package app.dayacore.data.local.repository
+package app.dayacore.data.local.repository.pos
 
 import app.dayacore.PreferenceName
 import app.dayacore.core.utils.Empty
-import app.dayacore.data.local.model.ConfigData
+import app.dayacore.data.local.model.pos.ConfigData
 import app.dayacore.domain.model.request.RabbitMQInitParam
 import app.dayacore.domain.model.request.SocketInitParam
 import com.russhwolf.settings.Settings
@@ -10,7 +10,7 @@ import kotlinx.serialization.json.Json
 
 class ConfigDBDataSourceImpl(
     private val preference: Settings,
-    private val json: Json
+    private val json: Json,
 ) : ConfigDBDataSource {
 
     private fun getDefaultConfig(): ConfigData {
@@ -54,7 +54,7 @@ class ConfigDBDataSourceImpl(
         urlToLoad: String,
         branchId: String,
         rabbitMQParam: RabbitMQInitParam,
-        socketParam: SocketInitParam
+        socketParam: SocketInitParam,
     ): Boolean {
         val configData = getConfigData()
         // update data

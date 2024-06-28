@@ -1,4 +1,4 @@
-package app.dayacore.data.local.repository
+package app.dayacore.data.local.repository.pos
 
 import app.dayacore.domain.model.request.RabbitMQInitParam
 import app.dayacore.domain.model.request.SocketInitParam
@@ -8,7 +8,7 @@ interface ConfigDBDataSource {
         urlToLoad: String,
         branchId: String,
         rabbitMQParam: RabbitMQInitParam,
-        socketParam: SocketInitParam
+        socketParam: SocketInitParam,
     ): Boolean
 
     suspend fun getUrlToLoad(): String

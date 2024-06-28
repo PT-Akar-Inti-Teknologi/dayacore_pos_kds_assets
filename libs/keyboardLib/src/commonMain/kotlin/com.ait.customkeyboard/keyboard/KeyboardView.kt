@@ -39,7 +39,7 @@ fun KeyboardView(
     focusFirstKey: Boolean = false,
     enableEmailSuggestions: Boolean = true,
     onAction: ((key: Key) -> Unit)? = null,
-    onKeyPress: (key: Key) -> Unit
+    onKeyPress: (key: Key) -> Unit,
 ) {
     val focusKey = remember { mutableStateOf(focusFirstKey) }
     val isUppercase = remember { mutableStateOf(false) }

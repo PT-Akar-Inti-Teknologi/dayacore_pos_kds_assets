@@ -32,7 +32,7 @@ class CountDownTimerImpl : CountDownTimer {
     override fun start(
         param: CountDownTimerParam,
         actionTick: (Long) -> Unit,
-        launchIn: CoroutineScope
+        launchIn: CoroutineScope,
     ) {
         stop()
 

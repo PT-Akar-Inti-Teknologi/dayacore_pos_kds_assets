@@ -51,7 +51,7 @@ fun LoaderDialog() {
 
 @Composable
 fun ProgressDialog(
-    progress: Float
+    progress: Float,
 ) {
     BaseDialog {
         LinearProgressIndicator(
@@ -66,7 +66,7 @@ fun SimpleDialog(
     title: String,
     message: String,
     titleDismiss: String,
-    onDismissed: () -> Unit = {}
+    onDismissed: () -> Unit = {},
 ) {
     val isDismissed = remember { mutableStateOf(false) }
 

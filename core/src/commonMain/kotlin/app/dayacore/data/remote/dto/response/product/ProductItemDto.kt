@@ -10,5 +10,5 @@ data class ProductItemDto(
     @SerialName("price")
     val price: Long? = null,
     @SerialName("stock")
-    val stock: Long? = null
+    val stock: Long? = null,
 )

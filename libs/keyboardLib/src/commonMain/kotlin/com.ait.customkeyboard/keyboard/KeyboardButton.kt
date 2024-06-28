@@ -45,7 +45,7 @@ fun KeyboardButton(
     wrapContent: Boolean = false,
     scaleAnimationEnabled: Boolean = true,
     contentPadding: PaddingValues = PaddingValues(0.dp),
-    onClick: (key: Key) -> Unit
+    onClick: (key: Key) -> Unit,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
     val isFocused by interactionSource.collectIsFocusedAsState()

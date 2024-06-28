@@ -45,7 +45,7 @@ object AppRabbitMQ {
         exchange: String = "amq.fanout",
         exchangeType: String = "fanout",
         routingKey: String = String.Empty,
-        callback: ConnectionCallback
+        callback: ConnectionCallback,
     ) {
         val channel = connection.createChannel().apply {
             exchangeDeclare(exchange, exchangeType, true)
@@ -86,7 +86,7 @@ object AppRabbitMQ {
                 consumerTag: String?,
                 envelope: Envelope?,
                 properties: AMQP.BasicProperties?,
-                body: ByteArray?
+                body: ByteArray?,
             ) {
                 if (consumerTag != null && body != null)
                     callback.onReceived.invoke(consumerTag, body.decodeToString())
@@ -100,7 +100,7 @@ object AppRabbitMQ {
         queue: String,
         exchange: String = "amq.fanout",
         exchangeType: String = "fanout",
-        message: String
+        message: String,
     ) {
         val channel = connection.createChannel().apply {
             exchangeDeclare(exchange, exchangeType, true)

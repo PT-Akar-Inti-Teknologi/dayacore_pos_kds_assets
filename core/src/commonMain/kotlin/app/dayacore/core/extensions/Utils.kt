@@ -88,7 +88,7 @@ fun <T> List<T>.toImmutableList(): List<T> {
 // scheduler running repeatedly action
 suspend fun scheduleRepeatedly(
     delayTimeMillis: Long,
-    delayAction: suspend CoroutineScope.() -> Unit
+    delayAction: suspend CoroutineScope.() -> Unit,
 ) =
     coroutineScope {
         while (true) {

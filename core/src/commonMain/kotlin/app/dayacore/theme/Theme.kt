@@ -92,7 +92,7 @@ val LocalThemeIsDark = compositionLocalOf { mutableStateOf(true) }
 @Composable
 fun AppTheme(
     typography: Typography,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     val systemIsDark = false/*isSystemInDarkTheme()*/
     val isDarkState = remember { mutableStateOf(systemIsDark) }

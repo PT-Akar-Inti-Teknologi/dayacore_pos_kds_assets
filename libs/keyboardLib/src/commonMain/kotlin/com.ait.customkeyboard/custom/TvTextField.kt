@@ -22,7 +22,7 @@ fun TvTextField(
     label: String,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     keyboardType: KeyboardType = KeyboardType.Text,
-    onValueChange: (TextFieldValue) -> Unit
+    onValueChange: (TextFieldValue) -> Unit,
 ) {
 
     CompositionLocalProvider(

@@ -1,4 +1,4 @@
-package app.dayacore.data.local.model
+package app.dayacore.data.local.model.pos
 
 import app.dayacore.domain.model.request.RabbitMQInitParam
 import app.dayacore.domain.model.request.SocketInitParam
@@ -10,5 +10,5 @@ data class ConfigData(
     var branchId: String,
     var rabbitMQParam: RabbitMQInitParam,
     var socketParam: SocketInitParam,
-    var urlCustomerDisplayToLoad: String
+    var urlCustomerDisplayToLoad: String,
 )

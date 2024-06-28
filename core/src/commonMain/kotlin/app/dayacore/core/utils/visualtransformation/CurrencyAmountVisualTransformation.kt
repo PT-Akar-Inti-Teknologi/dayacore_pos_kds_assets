@@ -7,7 +7,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import app.dayacore.core.extensions.formatCurrency
 
 class CurrencyAmountVisualTransformation(
-    private val currencyCode: String = "Rp"
+    private val currencyCode: String = "Rp",
 ) : VisualTransformation {
 
     private fun String.convertToCurrency(): String =

@@ -6,7 +6,7 @@ interface CountDownTimer {
     fun start(
         param: CountDownTimerParam,
         actionTick: (Long) -> Unit, // timer, isException
-        launchIn: CoroutineScope
+        launchIn: CoroutineScope,
     )
 
     fun stop()

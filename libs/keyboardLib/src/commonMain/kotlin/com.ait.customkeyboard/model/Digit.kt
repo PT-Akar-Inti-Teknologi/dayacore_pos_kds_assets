@@ -2,7 +2,7 @@ package com.ait.customkeyboard.model
 
 sealed class Digit(
     override val text: String,
-    override val span: Int = 1
+    override val span: Int = 1,
 ) : Key {
     data object Zero : Digit("0")
     data object One : Digit("1")

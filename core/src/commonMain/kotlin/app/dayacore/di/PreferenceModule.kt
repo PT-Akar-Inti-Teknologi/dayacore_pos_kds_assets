@@ -9,4 +9,7 @@ val preferenceModule = module {
     single(named(PreferenceName.CONFIG)) {
         getPlatform().getEncryptedPreference(PreferenceName.CONFIG)
     }
+    single(named(PreferenceName.KDS_SETTINGS)) {
+        getPlatform().getEncryptedPreference(PreferenceName.KDS_SETTINGS)
+    }
 }

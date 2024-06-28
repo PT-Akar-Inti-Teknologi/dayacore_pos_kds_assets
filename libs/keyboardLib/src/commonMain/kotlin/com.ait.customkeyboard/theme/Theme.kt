@@ -22,7 +22,7 @@ private val DarkColors = darkColorScheme(
 @Composable
 fun Material3Theme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     val colorScheme = when {
         darkTheme -> DarkColors

@@ -6,5 +6,5 @@ data class StatusResponse(
     var title: String = "",
     var message: String = "",
     var errorString: String = "",
-    val exception: Exception? = null
+    val exception: Exception? = null,
 )
