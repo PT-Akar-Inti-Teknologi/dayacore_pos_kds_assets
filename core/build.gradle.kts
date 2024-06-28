@@ -42,7 +42,6 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.voyager.navigator)
             implementation(libs.voyager.screenmodel)
-            implementation(libs.composeImageLoader)
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.kotlinx.datetime)
